@@ -1,0 +1,26 @@
+.item-select{
+    padding: 5px;
+    height: max-content;
+    color: #5D6D7E;
+    .header-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span{
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    }
+    
+    .description{
+        display: flex;
+        height: max-content;
+        flex-direction: row;      
+    }
+}
+
+.item-select:hover{
+    cursor: pointer;
+    background-color: #EAECEE;
+}

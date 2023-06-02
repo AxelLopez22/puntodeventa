@@ -1,0 +1,199 @@
+.screen-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: calc(100vh - 64px);
+}
+
+.screen-content {
+    position: relative;
+    margin: 0px auto;
+    text-align: left;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+}
+
+.top-content {
+    height: 64px;
+    border-bottom: solid 1px #C9CCD2;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    .top-content-center {
+        flex-grow: 1;
+
+        h1 {
+            margin-top: 10px;
+            display: block;
+            font-size: 2em;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+}
+
+.default-view {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    overflow: hidden;
+
+    .actions {
+        flex: 1;
+        margin: 0 1.5rem;
+
+        h1{
+            font-size: 1.5rem;
+            margin-bottom: 4rem;
+            display: block;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            margin: 1rem 0px;
+
+            .button {
+                flex: 1;
+                border: solid 1px #d1d1d1;
+                padding: 1rem;
+                text-align: center;
+                border-radius: 3px;
+                cursor: pointer;
+                background: #E0E2E6;
+            }
+        }
+
+         .send-email {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+
+            .input-email {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                flex: 1;
+                background: white;
+                border: solid 1px #d1d1d1;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+
+            input {
+                flex: 1;
+                padding-left: 1rem;
+                border: none;
+                color: #4A4F59;
+            }
+
+            button.send:not(.highlight) {
+                cursor: not-allowed;
+            }    
+
+            button.send {
+                padding: 1rem;
+                border: none;
+                background: #E0E2E6;
+                color: #80848F;
+            }
+        }
+    }
+}
+
+.pos-receipt-container {
+    flex: 0 1 400px;
+    overflow: auto;
+}
+
+.pos-receipt .pos-receipt-logo {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.pos-receipt-container {
+    font-size: 0.75em;
+    text-align: center;
+    direction: ltr;
+
+    & > div {
+        text-align: left;
+        width: 300px;
+        background-color: white;
+        margin: 20px;
+        padding: 15px;
+        font-size: 16px;
+        padding-bottom: 30px;
+        display: inline-block;
+        border: solid 1px gainsboro;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+}
+
+.pos-receipt .pos-receipt-contact {
+    text-align: center;
+    font-size: 75%;
+}
+
+.responsive-price {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.responsive-price > .pos-receipt-right-align {
+    margin-left: auto;
+}
+
+.pos-receipt .pos-receipt-right-align {
+    float: right;
+}
+
+.pos-receipt .pos-receipt-amount {
+    font-size: 125%;
+    padding-left: 6em;
+}
+
+.pos-receipt .pos-receipt-order-data {
+    text-align: center;
+    font-size: 75%;
+}
+
+.button.next.validation {
+    position: sticky;
+    bottom: 0;
+    height: auto;
+    padding: 3rem 0;
+}
+
+.pos .button.validation .pay-circle {
+    display: block;
+    font-size: 32px;
+    padding-top: 6px;
+    background: #212529;
+    color: white;
+    width: 60px;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}

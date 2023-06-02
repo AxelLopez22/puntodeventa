@@ -1,0 +1,107 @@
+<!-- <div class="head">
+    <button mat-raised-button>Volver</button>
+    <h2>Pago</h2>
+</div> -->
+
+<div class="top-content">
+    <div class="button back">
+        <i class="fa fa-angle-double-left fa-fw"></i>
+        <span class="back_text" routerLink="/">Volver</span>
+    </div>
+    <div class="top-content-center">
+        <h1>Pago</h1>
+    </div>
+</div>
+
+
+
+<div class="main-content">
+    <div class="left-container">
+        <div class="section-metodos-pagos">
+            <div class="tipos-pagos">
+                <span>Metodo de pago</span>
+            </div>
+            <div class="select-pago">
+                <button mat-raised-button (click)="seleccionarMetodoPago('Efectivo')">Efectivo</button>
+                <button mat-raised-button (click)="seleccionarMetodoPago('Tarjeta')">Tarjeta</button>
+            </div>
+        </div>
+
+        <div class="metodos-pagos">
+            <div *ngFor="let element of metodosPagos" (click)="capturarMetodoPago(element.id)">
+                <app-metodos-pago [metodoPago]="element"></app-metodos-pago>
+            </div>
+        </div>
+        
+        <div class="section-button-validate">
+            <button mat-raised-button routerLink="validar" (click)="validarPago()">Validar</button>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="pantalla-calculos">
+                <div class="payment-status-container">
+                    <div class="payment-status-remaining">
+                        <span class="label">Restantes: </span>
+                        <span class="amount">$ {{restante | number}}</span>
+                    </div>
+                    <div class="payment-status-total-due">
+                        <span class="label">Adeudo Total: </span>
+                        <span>$ {{ObtenerTotalProductos() | number}}</span>
+                    </div>
+                </div>
+                <div class="payment-status-change">
+                    <span class="label">Cambio: </span>
+                    <span class="amount highlight">$ {{cambio | number}}</span>
+                </div>
+        </div>
+        <div class="section-button">
+            <mat-grid-list [cols]="12" rowHeight="70px">
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button>Facturas</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button>Cliente</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button><mat-icon>backspace</mat-icon></button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(1)">1</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(2)">2</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(3)">3</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(4)">4</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(5)">5</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(6)">6</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(7)">7</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(8)">8</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(9)">9</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button>+/-</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button (click)="agregarNumero(0)">0</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1">
+                    <button>.</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+</div>

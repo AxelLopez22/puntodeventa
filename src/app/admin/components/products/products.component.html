@@ -1,0 +1,7 @@
+<div class="card" style="width: 9.9rem;" matTooltip="{{product.nombre}}" [matTooltipPosition]="'above'" (click)="AgregarProducto(product.id)">
+    <img src="../../../../assets/img/{{product.img}}" class="card-img-top" alt="">
+    <div class="card-body" style="text-align: center; padding: 0; margin: 0;">
+      <p class="card-title" style="font-weight: bold; margin-bottom: 0; font-size: 13px;">{{product.nombre}}</p>
+      <p class="card-text" style="font-size: 13px;">Precio: $ {{product.precio}}</p>
+    </div>
+</div>

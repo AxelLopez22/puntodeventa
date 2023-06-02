@@ -1,0 +1,120 @@
+
+
+<main>
+  <div class="left-container">
+    <div class="factura">
+        <div class="item-section" *ngFor="let item of detalleProducto" (click)="selectProduct(item.idProducto)"
+        [ngClass]="{'selected': item.idProducto === idSelectProduct, 'color': item.idProducto === idSelectProduct, '': item.idProducto !== idSelectProduct}">
+            <app-items-shop [productoDetalle]="item"></app-items-shop>
+        </div>     
+    </div>
+
+    <div class="section-button">
+        <div class="total">
+            <!-- <input type="text" [(ngModel)]="nuevaCantidad"> -->
+            <span class="subtotal">SubTotal: <strong>{{ObtenerTotal() | number}} $</strong></span>
+            <span class="descuento">Descuento: <strong>0 $</strong></span>
+            <span class="total-pagar">Total: <strong>{{ObtenerTotal() | number}} $</strong></span>
+        </div> 
+        <mat-grid-list [cols]="7" rowHeight="60px">
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <button data-bs-toggle="modal" data-bs-target="#generalModal" (click)="openModal('addCliente')">
+                    <mat-icon style="margin-right: 4px;">person</mat-icon>  {{customer}}
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(1)">1</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(2)">2</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(3)">3</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button>Qty</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="3">
+                <button style="display: flex; flex-direction: column;" routerLink="pagar" (click)="AddLocalStorage()">
+                    <mat-icon style="height: 20%; font-size: 2rem; font-weight: bold;">attach_money</mat-icon> 
+                    <span style="height: 30%;">Payment</span>
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(4)">4</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(5)">5</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(6)">6</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="AddDescuento()">Desc</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(7)">7</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(8)">8</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(9)">9</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="ChangePrice()">Price</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button>+/-</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(0)">0</button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button (click)="agregarNumero(0)">.</button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button (click)="EliminarProducto()"><mat-icon>backspace</mat-icon></button>
+            </mat-grid-tile>
+        </mat-grid-list> 
+    </div>
+    
+  </div>
+  <div class="right-container">
+    <nav class="navbar navbar-expand-lg" style="background-color: #EAECEE;">
+        <div class="container-fluid">
+            <!-- <button mat-mini-fab color="primary" aria-label="Example icon button with a bookmark icon">
+                <mat-icon>add</mat-icon>
+            </button> -->
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+        </div>
+    </nav>
+    <mat-tab-group animationDuration="1000ms" style="height: calc(100vh - 140px); overflow-y: auto;">
+        <mat-tab *ngFor="let group of categorias" label="{{group.nombre}}">
+            <div class="product-to-display">
+                <div class="element-flex" *ngFor="let item of group.productos">
+                    <app-products (AddProduct)="GetProduct($event)" [product]="item"></app-products>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="modal fade modal-lg" id="generalModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #7F8C8D; color: white; align-content: center;">
+                <h5 class="modal-title" #modalTitle style="font-size: 1rem; font-weight: bold;"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close" (click)="ObtenerNombre()"></button>
+            </div>
+            <div class="modal-body">
+                <ng-container #container></ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
