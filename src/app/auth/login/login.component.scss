@@ -1,4 +1,5 @@
 .login-wrapper {
+    display: flex;
     width: 100%;
     overflow: hidden;
     height: 100vh;
@@ -13,6 +14,7 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    background-color: #b8bcc9;
 }
 
 .login-wrapper .login-content .login-userset {
@@ -32,10 +34,11 @@ img {
 
 .login-wrapper .login-content .login-userheading {
     margin: 0 0 30px;
+    text-align: center;
 }
 
 .login-wrapper .login-content .login-userheading h3 {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 700;
     margin: 0 0 15px;
     color: #000;
@@ -43,7 +46,7 @@ img {
 
 .login-wrapper .login-content .login-userheading h4 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: bold;
     color: #212b36;
     line-height: 1.4;
 }
@@ -126,8 +129,7 @@ img {
 .login-wrapper .login-content .form-login .btn-login {
     width: 100%;
     font-weight: 700;
-    background: #FF9F43;
-    border-color: #ff9f43;
+    background: #212b36;
     padding: 12px;
     transition: all .5s ease;
     margin-top: 15px;
@@ -136,15 +138,16 @@ img {
 
 .login-wrapper .login-img {
     width: 60%;
-    border: 1px solid black;
+    background-color: #F8F9F9;
+    border-left: 2px #939ea8 solid;
+    text-align: center;
+    display: flex; /* Agregar esta línea */
+    justify-content: center; /* Agregar esta línea */
+    align-items: center; /* Agregar esta línea */
 }
 
 .login-wrapper .login-img img {
-    width: 100%;
-    height: 100vh;
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    max-height: 100%; /* Asegura que la imagen no se salga del contenedor */
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
