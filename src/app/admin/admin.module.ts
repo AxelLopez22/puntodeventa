@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -16,6 +16,7 @@ import { AdminComponent } from './admin.component';
 import { PosPagarComponent } from './pages/pos-pagar/pos-pagar.component';
 import { MetodosPagoComponent } from './components/metodos-pago/metodos-pago.component';
 import { ValidarPagoComponent } from './components/validar-pago/validar-pago.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ValidarPagoComponent } from './components/validar-pago/validar-pago.com
     NavbarComponent,
     PosPagarComponent,
     MetodosPagoComponent,
-    ValidarPagoComponent
+    ValidarPagoComponent,
+    InicioComponent
   ],
   imports: [
     CommonModule,

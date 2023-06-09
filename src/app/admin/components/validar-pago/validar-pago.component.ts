@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetalleVenta, ProductosFactura, metodosPago } from '../../models/models';
 import { categorias, productos } from '../../models/data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-validar-pago',
@@ -13,7 +14,7 @@ export class ValidarPagoComponent implements OnInit {
   detalleFactura: ProductosFactura[] = []
   metodoPago: metodosPago[] = []
   cambio: number = 0;
-  constructor(){}
+  constructor(private route: Router){}
   
   ngOnInit(): void {
     this.getItems();
@@ -27,7 +28,7 @@ export class ValidarPagoComponent implements OnInit {
         cantidad: 0,
         producto: '',
         precio: 0
-      }; // Crear instancia de ProductosFactura
+      };
       let nombre = productos.find(x => x.id === producto.idProducto);
       detalleFact.cantidad = producto.cantidad
       detalleFact.producto = nombre?.nombre;
@@ -40,6 +41,9 @@ export class ValidarPagoComponent implements OnInit {
   nuevaOrden(){
     localStorage.removeItem('tipoPago');
     localStorage.removeItem('items');
+    localStorage.removeItem('cliente');
+
+    this.route.navigate(['pcg/inicio/pos']);
   }
 
   ObtenerTotal(){

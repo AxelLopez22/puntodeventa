@@ -1,4 +1,8 @@
 <div class="login-wrapper">
+
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple"
+               [fullScreen]="true"><p style="color: white"> Cargando... </p></ngx-spinner>
+
     <div class="login-content">
         <div class="login-userset">
             <!-- <div class="login-logo logo-normal">
@@ -8,31 +12,24 @@
                 <h3>Iniciar Sesión</h3>
                 <h4>Ingrese sus Credenciales</h4>
             </div>
-            <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="ng-untouched ng-pristine ng-valid">
                 <div class="form-login">
                     <label>Nombre Usuario</label>
                     <div class="form-addons">
-                        <input type="text" placeholder="Ingrese su nombre de usuario" formcontrolname="email" id="email" class="ng-untouched ng-pristine ng-valid">
+                        <input type="text" placeholder="Ingrese su nombre de usuario" formControlName="NombreUsuario" id="NombreUsuario" class="form-control ng-untouched ng-pristine ng-valid">
                     </div><!----><!---->
                 </div>
                 <div class="form-login">
                     <label>Contraseña</label>
                     <div class="pass-group">
-                        <input placeholder="Ingrese su contraseña" formcontrolname="password" id="password" class="pass-input ng-untouched ng-pristine ng-valid" type="password"><!---->
+                        <input placeholder="Ingrese su contraseña" formControlName="Contrasenia" id="Contrasenia" class="form-control pass-input ng-untouched ng-pristine ng-valid" type="password"><!---->
                         <span class="fas toggle-password fa-eye-slash ng-star-inserted"></span><!---->
                     </div>
                 </div>
-            </form>
-            <!-- <div _ngcontent-rmb-c110="" class="form-login">
-                <div _ngcontent-rmb-c110="" class="alreadyuser">
-                    <h4 _ngcontent-rmb-c110="">
-                        <a _ngcontent-rmb-c110="" class="hover-a" href="/angular/template/forgetpassword">Forgot Password?</a>
-                    </h4>
+                <div class="form-login">
+                    <button mat-raised-button [disabled]="loginForm.invalid" class="btn btn-login" type="submit">Ingresar</button>
                 </div>
-            </div> -->
-            <div class="form-login">
-                <a class="btn btn-login">ingresar</a>
-            </div>
+            </form>
         </div>
     </div>
     <div class="login-img">

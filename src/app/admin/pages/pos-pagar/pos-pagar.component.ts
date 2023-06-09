@@ -50,8 +50,7 @@ export class PosPagarComponent implements OnInit {
         this.totalPrevio = this.total - this.numero;
 
         this.metodosPagos.forEach((pago) => {
-          pago.total = this.numero
-          console.log(pago.total);  
+          pago.total = this.numero 
         });
 
         if(this.totalPrevio < 0){
@@ -112,7 +111,6 @@ export class PosPagarComponent implements OnInit {
       this.idMetodoPago = 2;
       this.metodosPagos.push(elemento);
     }
-    
   }
 
   showAlert(status: string, mensaje: string){

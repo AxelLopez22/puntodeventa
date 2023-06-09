@@ -44,9 +44,7 @@ export class AddClienteComponent implements OnInit{
       Nombre: this.registerForm.get('nombres')?.value,
       Apellidos: this.registerForm.get('apellidos')?.value
     }
-    
     localStorage.setItem('cliente', element.Nombre);
-    console.log(element);
   }
 
   get Nombres(): FormControl {
